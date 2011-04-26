@@ -1,0 +1,22 @@
+<%= form_for @foo, :as => "foo", :url => 'foobar' do |f| %>
+  <% if @foo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@foo.errors.count, "error") %> prohibited this foo from being saved:</h2>
+
+      <ul>
+      <% @foo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <%= f.text_field :fuckingreally?, :value => 'foo' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
